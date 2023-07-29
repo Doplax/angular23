@@ -1,13 +1,13 @@
 
 
-(() => {
+//(() => {
  //Interfaces
-interface Product {
+export interface Product {
     description: string;
     price: number;
 }
 
-interface TaxtCalculationOptions {
+export interface TaxtCalculationOptions {
     products: Product[];
     tax: number;
     
@@ -32,7 +32,7 @@ const shoppingCart = [phone, tablet]
 
 //function taxCalculation ( options: TaxtCalculationOptions):number[] {
 //function taxCalculation ( {tax, products}: TaxtCalculationOptions):number[] { // Desestructuracion en los parametros
-function taxCalculation ( options: TaxtCalculationOptions):number[] {
+export function taxCalculation ( options: TaxtCalculationOptions):number[] {
     const {tax, products} = options
 
     let total = 0;
@@ -56,5 +56,5 @@ const [total, totalTax] = taxCalculation({
 })
 
 
-  })();
+//  })();
   
