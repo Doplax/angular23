@@ -1,9 +1,27 @@
 <h4>Listado</h4>
-<ul *ngFor="let character of characterList" class="list-group">
+<ul *ngFor="
+  let character of characterList;
+  let i = index;
+  let isFirst = first;
+  let isLast = last;
+  let isEven = even;
+  let isOdd = odd;
+  " class="list-group">
   <li class="list-group-item">
+
+    <span class="text-primary">{{i}}</span>
+
     <span>{{character.name}}</span>
-    <strong>
-      {{character.power}}
-    </strong>
+
+    <strong>Power: </strong>
+
+    <span>{{ character.power}}</span>
+
+    <span>Es el Primero? {{isFirst}}</span>
+    <span>Es el Ultimo? {{isLast}}</span>
+    <span>Es Par? {{isEven}}</span>
+    <span>Es Impar? {{isOdd}}</span>
+
+
   </li>
 </ul>
