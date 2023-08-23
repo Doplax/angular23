@@ -10,6 +10,7 @@ export class AddCharacterComponent {
 
   @Output()
   public onNewCharacter: EventEmitter<Character> = new EventEmitter();
+  
 
   public newCharacter: Character = {
     name: '',
@@ -17,7 +18,7 @@ export class AddCharacterComponent {
   }
 
   emitCharacter():void {
-   
+
 
     console.log(this.newCharacter);
     if (this.newCharacter.name.length === 0) return

@@ -13,6 +13,8 @@ export class ListComponent {
 
   @Output()
   public onDeleteId:EventEmitter<number> = new EventEmitter();
+  //public onDeleteId = new EventEmitter<number>(); // Otra forma de hacerlo infiriendo el tipo
+
 
   onDeleteCharacter(index:number):void {
     console.log({index});
