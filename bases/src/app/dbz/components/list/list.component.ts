@@ -20,8 +20,8 @@ export class ListComponent {
     public dbzService: DbzService,){
   }
 
-  onDeleteCharacter({id}:Character ):void {
-    console.log();
+  onDeleteCharacter(id?:string ):void {
+    if (!id) return; 
     this.onDeleteId.emit(id);
 
   }

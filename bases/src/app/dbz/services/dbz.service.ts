@@ -21,7 +21,7 @@ export class DbzService {
   }
 ]
 
-  onNewCharacter(character: Character):void {
+  addCharacter(character: Character):void {
 
     const newCharacter: Character = {id: uuid(),...character} // De esta forma esparcimos todas la propiedades de character
 
@@ -29,6 +29,6 @@ export class DbzService {
   }
 
   deleteCharacterById(id: string):void {
-    this.characters = this.characters.filter(character => character.id !== id)
+    this.characters = this.characters.filter(character => character.id !== id) // quiero todos los personajes que NO tengan este ID particular
   }
 }
