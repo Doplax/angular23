@@ -13,23 +13,24 @@
       'list-group-item-primary': isFirst,
       'list-group-item-dark': isLast,
     }"
-
-
-
     >
 
-    <span class="text-primary">{{i}}</span>
+    <div class="d-flex justify-content-between align-items-center">
+      <span class="text-primary">{{i}}</span>
 
-    <span> {{character.name}} </span>
+      <span> {{character.name}} </span>
 
-    <strong>Power: </strong>
+      <strong>Power: </strong>
 
-    <span>{{ character.power}}</span>
+      <span>{{ character.power}}</span>
 
-    <span>Es el Primero? {{isFirst}}</span>
+      <button (click)="onDeleteCharacter(character.id)" class="btn btn-danger">X</button>
+    </div>
+
+    <!--<span>Es el Primero? {{isFirst}}</span>
     <span>Es el Ultimo? {{isLast}}</span>
     <span>Es Par? {{isEven}}</span>
-    <span>Es Impar? {{isOdd}}</span>
+    <span>Es Impar? {{isOdd}}</span>-->
 
 
   </li>
