@@ -7,9 +7,10 @@
     <button
       *ngFor="let tag of tagsHistory"
       class="list-group-item list-group-item-action"
+      (click)="searchTag(tag)"
     >
-      <!-- Usamos el pipe uppercase -->
-      {{ tag | uppercase}}
+      <!-- Usamos el pipe titlecase -->
+      {{ tag | titlecase}}
     </button>
   </div>
 </div>

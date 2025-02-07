@@ -11,7 +11,11 @@ export class SidebarComponent {
 
   //Usamos el getter para acceder a la propiedad privada
   // _tagsHistory sin unsar el servicio en la vista
-  get tagsHistory() {
+  get tagsHistory(): string[] {
     return [...this.gifsService.tagsHistory];
+  }
+
+  searchTag(tag: string): void {
+    this.gifsService.searchTag(tag);
   }
 }
