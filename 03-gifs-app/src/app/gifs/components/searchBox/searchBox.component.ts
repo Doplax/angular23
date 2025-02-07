@@ -16,13 +16,9 @@ import { GifsService } from '../../services/gifs.service';
   styleUrls: ['./searchBox.component.css'],
 })
 export class SearchBoxComponent {
+  @ViewChild('textTagInput') tagInput!: ElementRef<HTMLInputElement>;
 
-  @ViewChild('textTagInput') tagInput!: ElementRef<HTMLInputElement> ;
-
-
-  constructor(
-    private gifsService: GifsService
-  ) {}
+  constructor(private gifsService: GifsService) {}
 
   searchTag() {
     const newTag = this.tagInput.nativeElement.value;
