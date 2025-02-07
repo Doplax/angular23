@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root' // This service will be available in the root of the application
@@ -6,8 +7,10 @@ import { Injectable } from '@angular/core';
 export class GifsService {
 
   private _tagsHistory: string[] = [];
+  private apiKey: string = 'Gjhu4nEldEiWIHcyAGV9VpqTt2mqPWYg'
+  private serviceUrl: string = 'https://api.giphy.com/v1/gifs'
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   get tagsHistory() {
     return [...this._tagsHistory];
@@ -24,8 +27,19 @@ export class GifsService {
     this._tagsHistory = this._tagsHistory.splice(0, 10);
   }
 
-  searchTag(tag: string): void{
+  searchTag(tag: string): void {
     if (tag.length === 0) { return;}
     this.organizeHistory(tag);
+
+    const params = new HttpParams()
+      .set('api_key', this.apiKey)
+      .set('limit', '10')
+      .set('q', tag);
+
+    this.httpClient.get(`${this.serviceUrl}/search`, { params })
+      .subscribe((response: any) => {
+        console.log(response.data)
+      })
   }
+
 }
