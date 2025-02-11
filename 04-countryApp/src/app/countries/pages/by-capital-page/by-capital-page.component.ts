@@ -5,4 +5,11 @@ import { Component } from '@angular/core';
   templateUrl: './by-capital-page.component.html',
   standalone: false,
 })
-export class ByCapitalPageComponent { }
+export class ByCapitalPageComponent {
+
+
+  searchByCapital( $event:any): void {
+    console.log({$event});
+    //console.log('searchByCapital', value);
+  }
+ }

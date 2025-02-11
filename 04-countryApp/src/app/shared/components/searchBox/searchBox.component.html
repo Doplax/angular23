@@ -1,1 +1,7 @@
-<input type="text" [placeholder]="placeHolder" placeholder="Search" />
+<input
+  #txtSearchInput
+  type="text"
+  (keyup.enter)="onValueEmiter(txtSearchInput.value)"
+  [placeholder]="placeHolder"
+  placeholder="Search"
+/>
