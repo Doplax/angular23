@@ -14,8 +14,7 @@ import { CountryPageComponent } from './pages/country-page/country-page.componen
     ByCapitalPageComponent,
     ByCountryPageComponent,
     ByRegionPageComponent,
-    CountryPageComponent
-
+    CountryPageComponent,
   ],
   imports: [
     CommonModule,

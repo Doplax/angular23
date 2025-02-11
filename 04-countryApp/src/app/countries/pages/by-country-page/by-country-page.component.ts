@@ -1,11 +1,22 @@
 import { Component } from '@angular/core';
+import { CountriesService } from '../../services/countries.service';
+import { Country } from '../../interfaces/country';
 
 @Component({
   selector: 'app-by-country-page',
-  standalone: false,
   templateUrl: './by-country-page.component.html',
-  styles: ``
+  styles: ``,
+  standalone: false,
 })
 export class ByCountryPageComponent {
+    public countries: Country[] = [];
+
+    constructor(private countriesServices: CountriesService) {}
+
+    searchCountry($event: any): void {
+      this.countriesServices
+        .searchCountry($event)
+        .subscribe((countries) => (this.countries = countries));
+    }
 
 }
