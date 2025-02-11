@@ -5,17 +5,12 @@
   <div class="col">
     <!-- SearchBox -->
     <shared-search-box (onValue)="searchByCapital($event)" placeHolder="Buscar por capital" />
-    Busquedas
   </div>
 </div>
 
 <div class="row">
   <div class="col">
     <hr>
-    <ul>
-      @for (country of countries; track $index) {
-        <li> {{ country.capital }} </li>
-      }
-    </ul>
+    <countries-table [countries]="countries"/>
   </div>
 </div>

@@ -16,6 +16,5 @@ export class ByCapitalPageComponent {
     this.countriesServices
       .searchByCapital($event)
       .subscribe((countries) => (this.countries = countries));
-    console.log({ $event });
   }
 }

@@ -6,6 +6,7 @@ import { SideBarComponent } from './components/sideBar/sideBar.component';
 import { RouterModule } from '@angular/router';
 import { SearchBoxComponent } from './components/searchBox/searchBox.component';
 import { FormsModule } from '@angular/forms';
+import { CountryTableComponent } from '../countries/components/country-table/country-table.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { FormsModule } from '@angular/forms';
     AboutPageComponent,
     SideBarComponent,
     SearchBoxComponent,
+    CountryTableComponent
   ],
   imports: [CommonModule, RouterModule, FormsModule],
   exports: [
@@ -20,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     AboutPageComponent,
     SideBarComponent,
     SearchBoxComponent,
+    CountryTableComponent
   ],
 })
 export class SharedModule {}
