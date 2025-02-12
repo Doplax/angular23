@@ -5,24 +5,24 @@ import { AboutPageComponent } from './pages/aboutPage/aboutPage.component';
 import { SideBarComponent } from './components/sideBar/sideBar.component';
 import { RouterModule } from '@angular/router';
 import { SearchBoxComponent } from './components/searchBox/searchBox.component';
+import { LoadingSpinnerComponent } from './components/loadingSpinner/loadingSpinner.component';
 import { FormsModule } from '@angular/forms';
-import { CountryTableComponent } from '../countries/components/country-table/country-table.component';
 
 @NgModule({
   declarations: [
-    HomePageComponent,
     AboutPageComponent,
-    SideBarComponent,
+    HomePageComponent,
+    LoadingSpinnerComponent,
     SearchBoxComponent,
-    CountryTableComponent
+    SideBarComponent,
   ],
   imports: [CommonModule, RouterModule, FormsModule],
   exports: [
-    HomePageComponent,
     AboutPageComponent,
-    SideBarComponent,
+    HomePageComponent,
+    LoadingSpinnerComponent,
     SearchBoxComponent,
-    CountryTableComponent
+    SideBarComponent,
   ],
 })
 export class SharedModule {}
