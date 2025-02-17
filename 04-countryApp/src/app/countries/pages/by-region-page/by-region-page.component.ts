@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
 import { Country } from '../../interfaces/country';
 
+//Usamos Type cuando sabemos que no va a extenderse a otros valores
+type Region = 'africa' | 'americas' | 'asia' | 'europe' | 'oceania';
+
 @Component({
   selector: 'app-by-region-page',
   standalone: false,
@@ -9,14 +12,16 @@ import { Country } from '../../interfaces/country';
   styles: ``
 })
 export class ByRegionPageComponent {
-    public regions: Country[] = [];
+    public countries: Country[] = [];
+    public regions: Region[] = ['africa', 'americas', 'asia', 'europe', 'oceania'];
+    public selectedRegion?: Region;
 
     constructor(private countriesServices: CountriesService) {}
 
-    searchByRegion($event: any): void {
+    searchByRegion(region: Region): void {
+      this.selectedRegion = region;
       this.countriesServices
-        .searchByRegion($event)
-        .subscribe((regions) => (this.regions = regions));
+        .searchByRegion(region)
+        .subscribe((countries) => (this.countries = countries));
     }
-
 }
