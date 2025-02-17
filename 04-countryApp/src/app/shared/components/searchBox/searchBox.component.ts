@@ -13,6 +13,7 @@ import { debounceTime, Subject, Subscription } from 'rxjs';
 })
 export class SearchBoxComponent implements OnInit, OnDestroy {
   @Input() placeHolder = 'Search...';
+  @Input() initialValue = '';
   @Output() onValue = new EventEmitter<string>();
   @Output() onDebounce = new EventEmitter<string>();
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
 import { Country } from '../../interfaces/country';
 
@@ -7,11 +7,17 @@ import { Country } from '../../interfaces/country';
   templateUrl: './by-capital-page.component.html',
   standalone: false,
 })
-export class ByCapitalPageComponent {
+export class ByCapitalPageComponent implements OnInit {
   public countries: Country[] = [];
   public isLoading: boolean = false;
+  public initalValue: string = '';
 
   constructor(private countriesServices: CountriesService) {}
+
+  ngOnInit(): void {
+    this.countries = this.countriesServices.cacheStore.byCapital.countries;
+    this.initalValue = this.countriesServices.cacheStore.byCapital.term;
+  }
 
   searchByCapital($event: any): void {
     this.isLoading = true;
