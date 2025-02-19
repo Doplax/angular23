@@ -15,19 +15,26 @@
   </div>
 
   <div class="col-12 md:col-6">
-    <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+    <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
       <p>Actualmente tenemos {{ clients.length | i18nPlural : clientsMap }}</p>
       <p-button (click)="deleteClient()" label="Borrar Cliente"></p-button>
     </p-fieldset>
   </div>
 
   <div class="col-12 md:col-6">
-    <p-fieldset legend="i18nPlural Pipe" [toggleable]="true"> </p-fieldset>
+    <p-fieldset legend="Slice Pipe" [toggleable]="true">
+      <b>Original</b>
+      <pre>{{clients}}</pre>
+
+      <b>Slice:0:2</b>
+      <pre>{{clients | slice:0:2}}</pre>
+
+      <!-- Elimina de atrás hacia adelante -->
+      <b>Slice:0:-2</b>
+      <pre>{{clients | slice:0:-2}}</pre>
+    </p-fieldset>
   </div>
 
-  <div class="col-12 md:col-6">
-    <p-fieldset legend="Slice Pipe" [toggleable]="true"> </p-fieldset>
-  </div>
   <div class="col-12 md:col-6">
     <p-fieldset legend="Json18nSelect Pipe" [toggleable]="true"> </p-fieldset>
   </div>
