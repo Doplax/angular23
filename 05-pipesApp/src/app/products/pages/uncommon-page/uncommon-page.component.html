@@ -24,14 +24,14 @@
   <div class="col-12 md:col-6">
     <p-fieldset legend="Slice Pipe" [toggleable]="true">
       <b>Original</b>
-      <pre>{{clients}}</pre>
+      <pre>{{ clients }}</pre>
 
       <b>Slice:0:2</b>
-      <pre>{{clients | slice:0:2}}</pre>
+      <pre>{{ clients | slice : 0 : 2 }}</pre>
 
       <!-- Elimina de atrás hacia adelante -->
       <b>Slice:0:-2</b>
-      <pre>{{clients | slice:0:-2}}</pre>
+      <pre>{{ clients | slice : 0 : -2 }}</pre>
     </p-fieldset>
   </div>
 
@@ -54,7 +54,12 @@
 
   <div class="col-12 md:col-6">
     <p-fieldset legend="Async Pipe" [toggleable]="true">
-
+      <pre *ngIf="!(myObservableTimer | async)">
+        Resolviendo observable...
+      </pre>
+      <pre>
+        {{ myObservableTimer | async }}
+      </pre>
     </p-fieldset>
   </div>
 </div>

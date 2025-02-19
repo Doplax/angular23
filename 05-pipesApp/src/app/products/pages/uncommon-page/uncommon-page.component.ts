@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { interval, tap } from 'rxjs';
 
 @Component({
   selector: 'app-uncommon-page',
@@ -40,4 +41,18 @@ export class UncommonPageComponent {
     age: 35,
     address: 'Calle 123, Ciudad'
   }
+
+
+  //Async Pipe
+  public myObservableTimer = interval(2000).pipe(
+    tap(value => console.log('Timer', value))
+  ) // cada 2 segundos
+
+  // Una promesa a diferencia de asinc no se puede cancelar
+  public promiseValue: Promise<string> = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Tenemos data de promesa');
+      console.log('Promesa terminada');
+    }, 3500);
+  });
 }
