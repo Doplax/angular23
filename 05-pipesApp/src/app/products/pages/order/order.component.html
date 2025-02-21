@@ -1,6 +1,12 @@
 <p-panel header="Pipes Personalizados" [showHeader]="true" class="p-1">
   <p>Pipes Personalizados - creados por nosotros</p>
   <p>{{ 'soy un texto' | toggleCase }}</p>
-
 </p-panel>
 
+<p-toolbar>
+  <div class="p-toolbar-group-end">
+    <p-button class="mr-2" styleClass="p-button-success" label="Por nombre" icon="pi pi-sort" styleClass="p-button-success"></p-button>
+    <p-button class="mr-2" styleClass="p-button-danger" label="Por volar" icon="pi pi-sort" styleClass="p-button-danger"></p-button>
+    <p-button class="mr-2" styleClass="p-button-help" label="Por color" icon="pi pi-sort" styleClass="p-button-danger"></p-button>
+  </div>
+</p-toolbar>
