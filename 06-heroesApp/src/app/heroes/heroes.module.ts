@@ -9,6 +9,9 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { ListPageComponent } from './pages/list-page/list-page.component';
 import { HeroPageComponent } from './pages/hero-page/hero-page.component';
 import { MaterialModule } from '../material/material.module';
+import { CardComponent } from './components/card/card.component';
+import { MatCardModule, } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,15 @@ import { MaterialModule } from '../material/material.module';
     NewPageComponent,
     SearchPageComponent,
     ListPageComponent,
-    HeroPageComponent
+    HeroPageComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,
     HeroesRoutingModule,
     MaterialModule,
-    HttpClientModule // ¡Asegúrate de que HttpClientModule esté aquí!
+    MatCardModule,
+    MatChipsModule
   ],
   providers: [] // No necesitas provideHttpClient() aquí para módulos tradicionales
 })
