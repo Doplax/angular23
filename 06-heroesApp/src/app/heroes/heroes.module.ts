@@ -12,6 +12,7 @@ import { MaterialModule } from '../material/material.module';
 import { CardComponent } from './components/card/card.component';
 import { MatCardModule, } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
+import { HeroImagePipe } from './pipes/heroImage.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,10 @@ import { MatChipsModule } from '@angular/material/chips';
     SearchPageComponent,
     ListPageComponent,
     HeroPageComponent,
-    CardComponent
+    CardComponent,
+
+    // PIPES
+    HeroImagePipe,
   ],
   imports: [
     CommonModule,
