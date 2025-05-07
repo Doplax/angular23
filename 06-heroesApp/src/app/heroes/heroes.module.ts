@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http'; // ¡Importa HttpClientModule aquí!
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HeroesRoutingModule } from './heroes-routing.module';
 import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
@@ -31,7 +31,8 @@ import { HeroImagePipe } from './pipes/heroImage.pipe';
     HeroesRoutingModule,
     MaterialModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    ReactiveFormsModule
   ],
   providers: [] // No necesitas provideHttpClient() aquí para módulos tradicionales
 })

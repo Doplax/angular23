@@ -9,7 +9,8 @@ import { Hero } from '../../interfaces/hero.interfaces';
   selector: 'app-hero-page',
   templateUrl: './hero-page.component.html',
   styles: [
-  ]
+  ],
+  standalone: false,
 })
 export class HeroPageComponent implements OnInit {
 
@@ -27,7 +28,6 @@ export class HeroPageComponent implements OnInit {
         switchMap( ({ id }) => this.heroesService.getHeroById( id )),
       )
       .subscribe( hero => {
-
         if ( !hero ) return this.router.navigate([ '/heroes/list' ]);
 
         this.hero = hero;
