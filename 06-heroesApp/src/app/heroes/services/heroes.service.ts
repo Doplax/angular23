@@ -21,4 +21,12 @@ export class HeroesService {
     );
   }
 
+  getSuggestions(query: string): Observable<Hero[]> {
+    return this.http.get<Hero[]>(`${this.baseURL}/heroes`, {
+      params: { superhero_like: query } // <-- esto hace búsqueda parcial en el campo "superhero"
+    });
+  }
+
+
+
 }
