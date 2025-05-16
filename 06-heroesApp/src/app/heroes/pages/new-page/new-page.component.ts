@@ -39,8 +39,19 @@ export class NewPageComponent {
   onSubmit():void {
     if (this.heroForm.invalid) return;
 
-    //this.heroesService.updateHero(this.heroForm.value)
+    // Si tiene id es un update
+    if(this.currentHero.id){
+      this.heroesService.updateHero(this.currentHero).subscribe(hero => {
+        console.log(hero);
+      })
+      return;
+    }
 
+    // Si no tiene id es un create
+    this.heroesService.addHero(this.currentHero)
+      .subscribe(hero => {
+        console.log(hero);
+      })
   }
 
 }
