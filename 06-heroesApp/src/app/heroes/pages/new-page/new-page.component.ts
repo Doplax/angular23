@@ -5,6 +5,7 @@ import { HeroesService } from '../../services/heroes.service';
 import { ThumbPosition } from '@angular/material/slider/testing';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-new-page',
@@ -34,7 +35,8 @@ export class NewPageComponent implements OnInit {
   constructor(
     private heroesService:HeroesService,
     private activatedRoute:ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private snackbar: MatSnackBar
   ) {}
 
   get currentHero(): Hero {
@@ -64,7 +66,7 @@ export class NewPageComponent implements OnInit {
     // Si tiene id es un update
     if(this.currentHero.id){
       this.heroesService.updateHero(this.currentHero).subscribe(hero => {
-        console.log(hero);
+        this.showSnackBar(`Hero ${hero.superhero} updated`);
       })
       return;
     }
@@ -72,8 +74,17 @@ export class NewPageComponent implements OnInit {
     // Si no tiene id es un create
     this.heroesService.addHero(this.currentHero)
       .subscribe(hero => {
-        console.log(hero);
+        this.router.navigate(['/heroes/edit', hero.id]);
+        this.showSnackBar(`Hero ${hero.superhero} created`);
       })
+  }
+
+  showSnackBar(message: string): void {
+    this.snackbar.open(message, 'done', {
+      duration: 2500,
+      horizontalPosition: 'right',
+      verticalPosition: 'top'
+    });
   }
 
 }
