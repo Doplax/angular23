@@ -13,6 +13,7 @@ import { CardComponent } from './components/card/card.component';
 import { MatCardModule, } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { HeroImagePipe } from './pipes/heroImage.pipe';
+import { ConfirmDialogComponent } from './components/confirmDialog/confirmDialog.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HeroImagePipe } from './pipes/heroImage.pipe';
     ListPageComponent,
     HeroPageComponent,
     CardComponent,
+    ConfirmDialogComponent,
 
     // PIPES
     HeroImagePipe,

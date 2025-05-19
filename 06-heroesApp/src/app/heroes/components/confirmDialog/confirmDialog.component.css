@@ -1,0 +1,12 @@
+/* confirmDialog.component.css */
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end; /* Alinea a la derecha */
+  gap: 8px; /* <-- Espacio entre botones */
+  margin-top: 16px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
