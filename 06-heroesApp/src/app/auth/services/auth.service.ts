@@ -12,24 +12,23 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  get currentUser(): User | undefined{
+  public get currentUser(): User | undefined{
     if (!this.user) return undefined;
     return structuredClone(this.user); // Esto es para evitar que se modifique el objeto original
   }
 
   login(email: string, password: string): Observable<User> {
-
-    this.http.get<User>(`${this.baseUrl}/users`)
+    return this.http.get<User>(`${this.baseUrl}/users/1`)
     .pipe(
-      tap( user => {
-        console.log(user);
-        this.user = user;
-      }),
-      tap( user => {
-        localStorage.setItem('token', user.id.toString());
+      tap( user => { this.user = user;}),
+      tap( user => { localStorage.setItem('token', 'aaaa.bbbb.cccc');
       })
     );
+  }
 
+  logout(): void {
+    this.user = undefined;
+    localStorage.clear(); // Elimina todo lo que hayamos guardado en esta aplicación
   }
 
 }
