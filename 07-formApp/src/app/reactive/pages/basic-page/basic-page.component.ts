@@ -30,8 +30,13 @@ export class BasicPageComponent {
   }
 
   onSave(): void {
-    if (this.myForm.invalid) {return;}
+    if (this.myForm.invalid) {
+      this.myForm.markAllAsTouched(); // 📌 Esto fuerza a Angular a mostrar los mensajes de error aunque el usuario no haya tocado los campos manualmente.
+      return;
+    }
 
     console.log(this.myForm.value);
+
+    this.myForm.reset({ price: 0, inStorage: 0 });
   }
 }
