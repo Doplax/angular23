@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
 
+const rtx5090 = {
+  name: 'RTX 5090',
+  price: 999,
+  inStorage: 100,
+}
+
 @Component({
   templateUrl: './basic-page.component.html',
   styles: ``,
@@ -25,7 +31,7 @@ export class BasicPageComponent {
 
   onSave(): void {
     if (this.myForm.invalid) {return;}
-    
+
     console.log(this.myForm.value);
   }
 }
