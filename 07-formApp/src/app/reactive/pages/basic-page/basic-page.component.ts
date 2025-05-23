@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
 
 const rtx5090 = {
@@ -12,7 +12,7 @@ const rtx5090 = {
   styles: ``,
   standalone: false,
 })
-export class BasicPageComponent {
+export class BasicPageComponent implements OnInit {
   //public myForm: FormGroup = new FormGroup({
   //  name: new FormGroup(''),
   //  price: new FormGroup(0),
@@ -27,6 +27,33 @@ export class BasicPageComponent {
       price: [0, [Validators.required, Validators.min(0)]],
       inStorage: [0, [Validators.required, Validators.min(0)]],
     });
+  }
+
+  ngOnInit() {
+    //this.myForm.reset(rtx5090);
+  }
+
+  isValidField( field: string): boolean | null {
+    return this.myForm.controls[field].errors && this.myForm.controls[field].touched;
+  }
+
+  getFieldError( field: string): string | null {
+    if (!this.myForm.controls[field]) return null
+
+    const errors = this.myForm.controls[field].errors || {};
+
+    for (const key in Object.keys(errors)) {
+      switch (key) {
+        case 'required':
+          return `El campo ${field} es requerido`;
+        case 'minlength':
+          return `El campo ${field} debe tener al menos ${errors['minlength'].requiredLength} caracteres`;
+        case 'min':
+          return `El campo ${field} debe ser mayor a 0`;
+      }
+    }
+
+    return ''
   }
 
   onSave(): void {
