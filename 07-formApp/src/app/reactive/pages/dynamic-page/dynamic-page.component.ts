@@ -62,6 +62,10 @@ export class DynamicPageComponent {
     return ''
   }
 
+  onDeleteFavorite(index:number): void {
+    this.favoriteGames.removeAt(index);
+  }
+
 
 
   onSumbit(): void {
