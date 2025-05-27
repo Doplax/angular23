@@ -34,6 +34,36 @@ export class DynamicPageComponent {
   }
 
 
+  isValidField( field: string): boolean | null {
+    return this.myForm.controls[field].errors && this.myForm.controls[field].touched;
+  }
+
+  isValidFieldInArray(formArray:FormArray, index: number): boolean | null {
+    return formArray.controls[index].errors
+    && formArray.controls[index].touched;
+  }
+
+  getFieldError( field: string): string | null {
+    if (!this.myForm.controls[field]) return null
+
+    const errors = this.myForm.controls[field].errors || {};
+
+    for (const key in Object.keys(errors)) {
+      switch (key) {
+        case 'required':
+          return `El campo ${field} es requerido`;
+        case 'minlength':
+          return `El campo ${field} debe tener al menos ${errors['minlength'].requiredLength} caracteres`;
+        case 'min':
+          return `El campo ${field} debe ser mayor a 0`;
+      }
+    }
+
+    return ''
+  }
+
+
+
   onSumbit(): void {
     if (this.myForm.invalid) {
       this.myForm.markAllAsTouched();
