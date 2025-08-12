@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+//import * as customValidators from '../../../shared/validators/validators';
+import { ValidatorsService } from '../../../shared/service/validators.service';
 
 @Component({
   selector: 'app-register-page',
@@ -13,24 +15,24 @@ export class RegisterPageComponent {
 
 
   constructor(
+    private validatorsService: ValidatorsService,
     private fb: FormBuilder
   ){
     this.myForm = this.fb.group({
       name: ['', [ Validators.required, Validators.pattern( this.validatorsService.firstNameAndLastnamePattern )  ]],
-      // email: ['', [ Validators.required, Validators.pattern( this.validatorsService.emailPattern )], [ new EmailValidator() ]],
-      email: ['', [ Validators.required, Validators.pattern( this.validatorsService.emailPattern )], [ this.emailValidator ]],
+      email: ['', [ Validators.required, Validators.pattern( this.validatorsService.emailPattern )]],
       username: ['', [ Validators.required, this.validatorsService.cantBeStrider ]],
       password: ['', [ Validators.required, Validators.minLength(6) ]],
       password2: ['', [ Validators.required ]],
     }, {
-      validators: [
-        this.validatorsService.isFieldOneEqualFieldTwo('password','password2')
-      ]
+      //validators: [
+      //  this.validatorsService.isFieldOneEqualFieldTwo('password','password2')
+      //]
     });
   }
 
-  isValidField(field: string): boolean {
-
+  isValidField(field: string) {
+    this.validatorsService.isValidField(this.myForm, field);
   }
 
   onSubmit() {
