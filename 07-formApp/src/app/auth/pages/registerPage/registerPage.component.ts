@@ -1,6 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-//import * as customValidators from '../../../shared/validators/validators';
 import { ValidatorsService } from '../../../shared/service/validators.service';
 import { EmailValidator } from '../../../shared/validators/email-validator.service';
 
@@ -28,9 +27,9 @@ export class RegisterPageComponent {
       password: ['', [ Validators.required, Validators.minLength(6) ]],
       password2: ['', [ Validators.required ]],
     }, {
-      //validators: [
-      //  this.validatorsService.isFieldOneEqualFieldTwo('password','password2')
-      //]
+      validators: [
+        this.validatorsService.isFieldOneEqualFieldTwo('password','password2')
+      ]
     });
   }
 
