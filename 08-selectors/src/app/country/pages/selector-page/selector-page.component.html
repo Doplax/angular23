@@ -8,7 +8,9 @@
       <label for="form-label">Contienete</label>
       <select formControlName="region" class="form-control" >
         <option value="" selected>Seleccione una región</option>
-        <option value="Africa" selected>Seleccione una región</option>
+        @for (region of regions; track $index) {
+          <option [value]="region" selected>{{region}}</option>
+        }
       </select>
     </div>
   </div>
