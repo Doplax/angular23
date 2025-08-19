@@ -14,7 +14,23 @@
       </select>
     </div>
   </div>
+
+
+  <!-- Countries -->
+  <div class="row mb-3">
+    <div class="col">
+      <label for="form-label">País:</label>
+      <select formControlName="region" class="form-control" >
+        <option value="" selected>Seleccione una País</option>
+        <!--@for (region of regions; track $index) {
+          <option [value]="region" selected>{{region}}</option>
+        }-->
+      </select>
+    </div>
+  </div>
 </form>
+
+
 
 <h3>Formulario</h3>
 <code>
