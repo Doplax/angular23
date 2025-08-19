@@ -16,17 +16,20 @@
 
 
   <!-- Countries -->
-  <div class="row mb-3">
-    <div class="col">
-      <label for="form-label">País:</label>
-      <select formControlName="region" class="form-control" >
-        <option value="" selected>Seleccione una País</option>
-        @for (country of countriesByRegion; track $index) {
-          <option [value]="country.cca3" selected>{{country.name}}</option>
-        }
-      </select>
+  @if(countriesByRegion.length > 0) {
+    <div class="row mb-3">
+      <div class="col">
+        <label for="form-label">País:</label>
+        <select formControlName="region" class="form-control" >
+          <option value="" selected>Seleccione una País</option>
+          @for (country of countriesByRegion; track $index) {
+            <option [value]="country.cca3" selected>{{country.name}}</option>
+          }
+        </select>
+      </div>
     </div>
-  </div>
+  }
+
 </form>
 
 
