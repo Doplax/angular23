@@ -21,9 +21,9 @@
       <label for="form-label">País:</label>
       <select formControlName="region" class="form-control" >
         <option value="" selected>Seleccione una País</option>
-        <!--@for (region of regions; track $index) {
-          <option [value]="region" selected>{{region}}</option>
-        }-->
+        @for (country of countriesByRegion; track $index) {
+          <option [value]="country.cca3" selected>{{country.name}}</option>
+        }
       </select>
     </div>
   </div>
