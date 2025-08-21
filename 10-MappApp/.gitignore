@@ -2,7 +2,7 @@
 
 
 .env
-/src/environment/environment.ts
+/src/environments/environment.ts
 
 # Compiled output
 /dist
