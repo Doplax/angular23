@@ -5,7 +5,8 @@
       "stylesArray": true
     },
     "angular-component": {
-      "ngOnInit": true
+      "ngOnInit": true,
+      "skipChangeDetectionOnPush": true
     }
   }
 }
