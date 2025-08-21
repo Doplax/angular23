@@ -3,13 +3,11 @@ import { AppRoutingModule } from "../../../app-routing.module";
 
 @Component({
   selector: 'app-maps-layout',
-  standalone: true,
-  imports: [AppRoutingModule],
+  standalone: false,
   templateUrl: './maps-layout.component.html',
   styleUrls: ['./maps-layout.component.css'],
 })
-export class MapsLayoutComponent implements OnInit {
+export class MapsLayoutComponent {
 
-  ngOnInit(): void { }
 
 }

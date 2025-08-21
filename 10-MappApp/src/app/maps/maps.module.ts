@@ -6,6 +6,8 @@ import { FullScrenPageComponent } from './pages/full-scren-page/full-scren-page.
 import { MarkersPageComponent } from './pages/markers-page/markers-page.component';
 import { PropertiesPageComponent } from './pages/properties-page/properties-page.component';
 import { ZoomRangePageComponent } from './pages/zoom-range-page/zoom-range-page.component';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { MapsLayoutComponent } from './layout/maps-layout/maps-layout.component';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { ZoomRangePageComponent } from './pages/zoom-range-page/zoom-range-page.
     FullScrenPageComponent,
     MarkersPageComponent,
     PropertiesPageComponent,
-    ZoomRangePageComponent
+    ZoomRangePageComponent,
+    SideMenuComponent,
+    MapsLayoutComponent,
   ],
   imports: [
     CommonModule,
