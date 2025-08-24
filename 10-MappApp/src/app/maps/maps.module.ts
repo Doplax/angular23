@@ -10,6 +10,11 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { MapsLayoutComponent } from './layout/maps-layout/maps-layout.component';
 
 
+import mapboxgl from 'mapbox-gl';
+
+import { environment } from '../../environments/environment';
+mapboxgl.accessToken = environment.mapbox_key;
+
 @NgModule({
   declarations: [
     FullScrenPageComponent,
