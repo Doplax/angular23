@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Map } from 'mapbox-gl';
 
 @Component({
   selector: 'app-zoom-range-page',
@@ -8,4 +9,17 @@ import { Component } from '@angular/core';
 })
 export class ZoomRangePageComponent {
 
+  @ViewChild('map') divMap?: ElementRef;
+
+  ngAfterViewInit(): void {
+
+    if(!this.divMap) { throw new Error('Map container not found');}
+
+    const map = new Map({
+      container: this.divMap.nativeElement,
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [2.15, 41.5],
+      zoom: 9
+    });
+  }
 }
