@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { LngLat, Map } from 'mapbox-gl';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-zoom-range-page',
