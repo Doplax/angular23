@@ -13,6 +13,7 @@ import { MapsLayoutComponent } from './layout/maps-layout/maps-layout.component'
 import mapboxgl from 'mapbox-gl';
 
 import { environment } from '../../environments/environment';
+import { MiniMapComponent } from './components/mini-map/mini-map.component';
 mapboxgl.accessToken = environment.mapbox_key;
 
 @NgModule({
@@ -23,6 +24,7 @@ mapboxgl.accessToken = environment.mapbox_key;
     ZoomRangePageComponent,
     SideMenuComponent,
     MapsLayoutComponent,
+    MiniMapComponent,
   ],
   imports: [
     CommonModule,
