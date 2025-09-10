@@ -1,0 +1,18 @@
+:host {
+  display: block;
+}
+
+
+li {
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+
+ul {
+  position:fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  width: 180px;
+}
