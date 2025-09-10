@@ -1,0 +1,132 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "directiveSignals": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "type": "component",
+          "style": "scss",
+          "standalone": false,
+          "skipTests": true,
+          "changeDetection": "Default"
+        },
+        "@schematics/angular:directive": {
+          "type": "directive",
+          "standalone": false,
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "type": "service",
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "typeSeparator": ".",
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "typeSeparator": ".",
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "typeSeparator": "."
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false,
+          "typeSeparator": ".",
+          "skipTests": true
+        },
+        "@schematics/angular:resolver": {
+          "typeSeparator": ".",
+          "skipTests": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "src/styles.css"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "directiveSignals:build:production"
+            },
+            "development": {
+              "buildTarget": "directiveSignals:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "src/styles.css"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "47d90b58-3ff9-4771-b7de-40e520829669"
+  }
+}
