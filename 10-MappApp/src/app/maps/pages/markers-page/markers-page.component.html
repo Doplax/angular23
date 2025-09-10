@@ -2,11 +2,15 @@
 </div>
 
 <ul class="list-group mt-2">
-  <!--@for(marker of markers;track $index){-->
-    <li class="list-group-item ">
-      Marker 1
+  @for(colorMarker of markers;track $index){
+    <li
+      class="list-group-item "
+      [ngStyle]="{backgroundColor: colorMarker.color}"
+      (dblclick)="deleteMarker($index)"
+      >
+        Marker {{ $index + 1 }}
     </li>
-  <!--}-->
+  }
 </ul>
 
 <button (click)="createMarker()" class="btn btn-primary">
